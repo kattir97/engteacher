@@ -1,0 +1,32 @@
+---
+interface Props {
+  bgColor: string;
+  boxShadow: string;
+}
+
+const { bgColor = "#fff", boxShadow = "none" } = Astro.props;
+---
+
+<button><slot /></button>
+
+<style define:vars={{ bgColor, boxShadow }}>
+  button {
+    border-radius: 1.5rem;
+    padding: 1.2rem 2rem;
+    border: 1px solid #ccc;
+    background-color: var(--bgColor);
+    box-shadow: var(--boxShadow);
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: "Nunito Sans", sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      /* background-color:; */
+      transform: translateY(-2px);
+    }
+  }
+</style>

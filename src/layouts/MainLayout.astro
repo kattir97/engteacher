@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+// Supports weights 200-900
+import "@fontsource/nunito-sans";
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Private Teacher</title>
+  </head>
+  <body>
+    <div class="container">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style>
+  .container {
+    padding: 2rem 5rem;
+  }
+
+  :global(html) {
+    font-family: "Nunito Sans", sans-serif;
+  }
+</style>
