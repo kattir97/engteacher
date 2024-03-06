@@ -1,23 +1,52 @@
 ---
-interface Props {
-  bgColor: string;
-  boxShadow: string;
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  bgColor?: "primary" | "secondary" | "transparent";
+  hoverBg?: "primary" | "secondary" | "transparent";
+  size?: "sm" | "md" | "lg";
+  boxShadow?: string;
+  animated?: boolean;
 }
 
-const { bgColor = "#fff", boxShadow = "none" } = Astro.props;
+const {
+  bgColor = "transparent",
+  boxShadow = "none",
+  animated = false,
+  size = "md",
+  hoverBg = "transparent",
+} = Astro.props;
+const translate = animated ? "translateY(-2px)" : "translateY(0px)";
+const buttonColor =
+  bgColor === "primary"
+    ? "var(--primary-color)"
+    : bgColor === "secondary"
+      ? "var(--secondary-color)"
+      : "transparent";
+
+const bgHover =
+  hoverBg === "primary"
+    ? "var(--primary-color)"
+    : hoverBg === "secondary"
+      ? "var(--secondary-color)"
+      : "transparent";
+
+const textColor = buttonColor === "transparent" ? "#000" : "#fff";
+
+console.log(bgHover);
 ---
 
-<button><slot /></button>
+<button data-size={size}><slot /></button>
 
-<style define:vars={{ bgColor, boxShadow }}>
+<style define:vars={{ buttonColor, boxShadow, translate, textColor, bgHover }}>
   button {
     border-radius: 1.5rem;
     padding: 1.2rem 2rem;
     border: 1px solid #ccc;
-    background-color: var(--bgColor);
+    background-color: var(--buttonColor);
     box-shadow: var(--boxShadow);
-    color: #fff;
-    font-size: 1.4rem;
+    color: var(--textColor);
+    /* font-size: 1.4rem; */
     font-weight: 600;
     font-family: "Nunito Sans", sans-serif;
     letter-spacing: 1px;
@@ -25,8 +54,18 @@ const { bgColor = "#fff", boxShadow = "none" } = Astro.props;
     transition: all 0.2s;
 
     &:hover {
-      /* background-color:; */
-      transform: translateY(-2px);
+      transform: var(--translate);
+      background-color: var(--bgHover);
     }
+  }
+
+  [data-size="sm"] {
+    font-size: 1.2rem;
+  }
+  [data-size="md"] {
+    font-size: 1.4rem;
+  }
+  [data-size="lg"] {
+    font-size: 1.8rem;
   }
 </style>

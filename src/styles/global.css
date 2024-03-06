@@ -134,6 +134,13 @@ table {
   /* ========== COLORS ======== */
   --dark-blue: #27374d;
   --light-blue: #526d82;
+  --primary-color: #524fd5;
+  --secondary-color: #f6ab00;
+  --tertiary-1: #fc848b;
+  --tertiary-2: #68bde2;
+  --tertiary-3: #f7e17b;
+  --tertiary-4: #a8d08d;
+  --tertiary-5: #9c89b8;
 }
 
 html {

@@ -23,7 +23,9 @@ import Button from "./Button.astro";
   </div>
 
   <div class="right">
-    <Button bgColor="#524fd5" , boxShadow="0 1rem 2rem rgba(82, 79, 213, 0.2)">Связаться</Button>
+    <Button bgColor="primary" , boxShadow="0 1rem 2rem rgba(82, 79, 213, 0.2)" animated>
+      Связаться
+    </Button>
   </div>
 </div>
 
@@ -38,45 +40,6 @@ import Button from "./Button.astro";
       justify-content: center;
       align-items: center;
       gap: 10rem;
-
-      & .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-        & .logo-img {
-          width: 4rem;
-          height: 4rem;
-        }
-
-        & .name {
-          font-size: 2rem;
-          font-family: "Pacifico", cursive;
-        }
-      }
-
-      & .nav {
-        & .nav-list {
-          list-style: none;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 2.5rem;
-
-          & .nav-item {
-            font-size: 1.7rem;
-            font-weight: 700;
-            & .nav-link {
-              text-decoration: none;
-              color: var(--dark-blue);
-
-              &:hover {
-                color: var(--light-blue);
-              }
-            }
-          }
-        }
-      }
     }
 
     & .right {
@@ -84,6 +47,45 @@ import Button from "./Button.astro";
         border-radius: 1.5rem;
         padding: 1rem 2rem;
         border: none;
+      }
+    }
+  }
+
+  & .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    & .logo-img {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    & .name {
+      font-size: 2rem;
+      font-family: "Pacifico", cursive;
+    }
+  }
+
+  & .nav {
+    & .nav-list {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+
+      & .nav-item {
+        font-size: 1.7rem;
+        font-weight: 700;
+        & .nav-link {
+          text-decoration: none;
+          color: var(--dark-blue);
+
+          &:hover {
+            color: var(--light-blue);
+          }
+        }
       }
     }
   }
