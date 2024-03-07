@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import exam from "../assets/exam.png";
+import target from "../assets/target.png";
+import remote from "../assets/remote.png";
+import methods from "../assets/methods.png";
+import "@fontsource/sofia-sans";
+---
+
+<section class="features">
+  <h1 class="heading">Наши предложения</h1>
+  <div class="features-box">
+    <div class="feature">
+      <Image src={remote} alt="remote study image" class="img" />
+      <h2 class="subheading">Дистанционное Обучение</h2>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi distinctio eum, eveniet
+        odit tenetur sapiente ex corrupti provident, totam mollitia facilis, quos optio culpa natus
+        qui tempore quam unde?
+      </p>
+    </div>
+    <div class="feature">
+      <Image src={exam} alt="remote study image" class="img" />
+      <h2 class="subheading">Международные Экзамены</h2>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi distinctio eum, eveniet
+        odit tenetur sapiente ex corrupti provident, totam mollitia facilis, quos optio culpa natus
+        qui tempore quam unde?
+      </p>
+    </div>
+    <div class="feature">
+      <Image src={target} alt="remote study image" class="img" />
+      <h2 class="subheading">Персональное Обучение</h2>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi distinctio eum, eveniet
+        odit tenetur sapiente ex corrupti provident, totam mollitia facilis, quos optio culpa natus
+        qui tempore quam unde?
+      </p>
+    </div>
+    <div class="feature">
+      <Image src={methods} alt="remote study image" class="img" />
+      <h2 class="subheading">Современные Методы</h2>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam animi distinctio eum, eveniet
+        odit tenetur sapiente ex corrupti provident, totam mollitia facilis, quos optio culpa natus
+        qui tempore quam unde?
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: 5rem 0;
+    text-align: center;
+
+    & .heading {
+      font-size: 3.5rem;
+      font-weight: 700;
+      font-family: "Sofia Sans", sans-serif;
+    }
+  }
+
+  .features-box {
+    padding: 8rem 0 5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  & .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & .img {
+      width: 10rem;
+      height: 10rem;
+      margin-bottom: 2rem;
+    }
+
+    & .subheading {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-family: "Sofia Sans", sans-serif;
+    }
+
+    & .text {
+      font-size: 1.4rem;
+    }
+  }
+</style>
