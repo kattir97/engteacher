@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import teacher from "../assets/teacher.jpg";
+import "@fontsource/tektur";
+---
+
+<section class="about">
+  <div class="container">
+    <div class="img-box">
+      <Image src={teacher} alt="фотка учителя" class="img" />
+    </div>
+  </div>
+  <div class="content">
+    <div class="item">
+      <h3 class="heading-md">Обо мне</h3>
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, tempore nemo quos a
+        exercitationem recusandae iusto, quod earum praesentium officia quam, quia veniam dicta rem.
+        Asperiores enim, pariatur iure voluptatibus eaque temporibus consequatur quos amet
+        accusantium ipsam voluptatem accusamus ab ut modi ipsa iusto consequuntur. Reiciendis dicta
+        et eius sed!
+      </p>
+    </div>
+    <div class="item">
+      <h3 class="heading-md">Образование</h3>
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit fugit odio impedit iure
+        facere beatae? Repellendus, tempore temporibus. Animi asperiores quaerat ducimus totam,
+        doloribus nisi. Atque, perspiciatis. Accusamus, odit iste.
+      </p>
+    </div>
+    <div class="item">
+      <h3 class="heading-md">Опыт</h3>
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit fugit odio impedit iure
+        facere beatae? Repellendus, tempore temporibus. Animi asperiores quaerat ducimus totam,
+        doloribus nisi. Atque, perspiciatis. Accusamus, odit iste.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    display: flex;
+    gap: 5rem;
+    padding: 5rem 0;
+  }
+
+  .container {
+    flex: 0 0 50%;
+
+    & .img-box {
+      overflow: hidden;
+      height: 50rem;
+      width: 50rem;
+      border-radius: 50%;
+
+      & .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 4rem;
+    font-size: 1.6rem;
+  }
+
+  .item {
+    & .heading-md {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-family: "Tektur", sans-serif, system-ui;
+    }
+
+    & .paragraph {
+      font-size: 1.7rem;
+    }
+  }
+</style>
