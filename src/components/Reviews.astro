@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import avatar1 from "../assets/avatar-1.svg";
+import avatar2 from "../assets/avatar-2.svg";
+import avatar3 from "../assets/avatar-3.svg";
+
+import "@fontsource/sofia-sans";
+---
+
+<section class="reviews">
+  <h1 class="title">Отзывы наших учеников</h1>
+  <div class="container">
+    <div class="review">
+      <div class="header">
+        <Image src={avatar1} alt="student 1" class="img" />
+        <div class="info">
+          <h3 class="name">Джеймс Ламберт</h3>
+          <span class="city">Род Айлэнд</span>
+        </div>
+      </div>
+      <div class="body">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero animi obcaecati vitae neque
+        dolores cupiditate eius dolorum architecto quis alias.
+      </div>
+    </div>
+    <div class="review">
+      <div class="header">
+        <Image src={avatar2} alt="student 1" class="img" />
+        <div class="info">
+          <h3 class="name">Элизабет Хар</h3>
+          <span class="city">Кентуки</span>
+        </div>
+      </div>
+      <div class="body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, veritatis quaerat minima
+        libero quasi obcaecati sequi modi laudantium saepe!
+      </div>
+    </div>
+    <div class="review">
+      <div class="header">
+        <Image src={avatar3} alt="student 1" class="img" />
+        <div class="info">
+          <h3 class="name">Эндрю Кросби</h3>
+          <span class="city">Миссури</span>
+        </div>
+      </div>
+      <div class="body">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt quibusdam animi neque
+        alias, odio qui, quod soluta ea inventore deserunt voluptatum dolorum vero est.
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews {
+    padding: 8rem 0;
+  }
+
+  .title {
+    font-size: 4rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  .container {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .review {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--white-light);
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    flex: 1;
+
+    & .header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      & .img {
+        height: 6rem;
+        width: 6rem;
+      }
+
+      & .info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        & .name {
+          font-size: 1.8rem;
+          font-weight: bold;
+          font-family: "Sofia Sans", sans-serif;
+        }
+
+        & .city {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    & .body {
+      font-size: 1.6rem;
+    }
+  }
+</style>
