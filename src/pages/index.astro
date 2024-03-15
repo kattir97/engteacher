@@ -5,6 +5,7 @@ import Hero from "../components/Hero.astro";
 import Features from "../components/Features.astro";
 import About from "../components/About.astro";
 import Reviews from "../components/Reviews.astro";
+import Recent from "../components/Recent.astro";
 ---
 
 <MainLayout>
@@ -13,4 +14,19 @@ import Reviews from "../components/Reviews.astro";
   <Features />
   <About />
   <Reviews />
+  <Recent />
 </MainLayout>
+
+<style is:global>
+  html {
+    font-family: "Nunito Sans", sans-serif;
+  }
+
+  .heading-lg {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 700;
+    font-family: "Sofia Sans", sans-serif;
+    margin-bottom: 8rem;
+  }
+</style>

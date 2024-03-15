@@ -136,6 +136,8 @@ table {
   --light-blue: #526d82;
   --primary-color: #524fd5;
   --secondary-color: #f6ab00;
+  --secondary-color-dark: #ff8911;
+
   --tertiary-1: #fc848b;
   --tertiary-2: #68bde2;
   --tertiary-3: #f7e17b;
@@ -143,6 +145,7 @@ table {
   --tertiary-5: #9c89b8;
 
   --white-light-1: #fbfbfb;
+  --light-grey-1: #f5f5f5;
 }
 
 html {

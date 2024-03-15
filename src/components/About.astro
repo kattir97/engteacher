@@ -5,49 +5,55 @@ import "@fontsource/tektur";
 ---
 
 <section class="about">
+  <h1 class="heading-lg">Информация об учителе</h1>
   <div class="container">
-    <div class="img-box">
-      <Image src={teacher} alt="фотка учителя" class="img" />
+    <div class="flex-box">
+      <div class="img-box">
+        <Image src={teacher} alt="фотка учителя" class="img" />
+      </div>
     </div>
-  </div>
-  <div class="content">
-    <div class="item">
-      <h3 class="heading-md">Обо мне</h3>
-      <p class="paragraph">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, tempore nemo quos a
-        exercitationem recusandae iusto, quod earum praesentium officia quam, quia veniam dicta rem.
-        Asperiores enim, pariatur iure voluptatibus eaque temporibus consequatur quos amet
-        accusantium ipsam voluptatem accusamus ab ut modi ipsa iusto consequuntur. Reiciendis dicta
-        et eius sed!
-      </p>
-    </div>
-    <div class="item">
-      <h3 class="heading-md">Образование</h3>
-      <p class="paragraph">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit fugit odio impedit iure
-        facere beatae? Repellendus, tempore temporibus. Animi asperiores quaerat ducimus totam,
-        doloribus nisi. Atque, perspiciatis. Accusamus, odit iste.
-      </p>
-    </div>
-    <div class="item">
-      <h3 class="heading-md">Опыт</h3>
-      <p class="paragraph">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit fugit odio impedit iure
-        facere beatae? Repellendus, tempore temporibus. Animi asperiores quaerat ducimus totam,
-        doloribus nisi. Atque, perspiciatis. Accusamus, odit iste.
-      </p>
+    <div class="content">
+      <div class="item">
+        <h3 class="heading-md">Обо мне</h3>
+        <p class="paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, tempore nemo quos a
+          exercitationem recusandae iusto, quod earum praesentium officia quam, quia veniam dicta
+          rem. Asperiores enim, pariatur iure voluptatibus eaque temporibus consequatur quos amet
+          accusantium ipsam voluptatem accusamus ab ut modi ipsa iusto consequuntur. Reiciendis
+          dicta et eius sed!
+        </p>
+      </div>
+      <div class="item">
+        <h3 class="heading-md">Образование</h3>
+        <p class="paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit fugit odio impedit iure
+          facere beatae? Repellendus, tempore temporibus. Animi asperiores quaerat ducimus totam,
+          doloribus nisi. Atque, perspiciatis. Accusamus, odit iste.
+        </p>
+      </div>
+      <div class="item">
+        <h3 class="heading-md">Опыт</h3>
+        <p class="paragraph">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit fugit odio impedit iure
+          facere beatae? Repellendus, tempore temporibus. Animi asperiores quaerat ducimus totam,
+          doloribus nisi. Atque, perspiciatis. Accusamus, odit iste.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .about {
-    display: flex;
-    gap: 5rem;
     padding: 8rem 0;
   }
 
   .container {
+    display: flex;
+    gap: 5rem;
+  }
+
+  .flex-box {
     flex: 0 0 50%;
 
     & .img-box {
