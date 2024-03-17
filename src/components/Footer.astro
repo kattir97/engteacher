@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import logo from "../assets/language.png";
+import "@fontsource/tektur";
+---
+
+<section class="footer">
+  <div class="container">
+    <div class="logo">
+      <Image src={logo} alt="website logo" class="logo-img" />
+      <span class="name">Алиса Суетнова</span>
+    </div>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" class="nav-link">главная</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">обо мне</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">контакты</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">блог</a></li>
+      </ul>
+    </nav>
+
+    <div class="socials">
+      <a href="#" class="social-link">
+        <Icon name="telegram" />
+      </a>
+      <a href="#" class="social-link">
+        <Icon name="facebook" />
+      </a>
+      <a href="#" class="social-link">
+        <Icon name="instagram" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .footer {
+    padding: 2rem 0;
+    border-top: 2px solid var(--light-grey-1);
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    & .logo-img {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    & .name {
+      font-size: 1.6rem;
+      font-family: "Pacifico", cursive;
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    font-family: "Tektur", "system-ui";
+
+    & .nav-item {
+      padding: 1rem;
+      font-size: 1.5rem;
+    }
+
+    & .nav-link,
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: var(--dark-blue);
+      font-weight: 600;
+
+      &:hover {
+        color: var(--light-blue);
+      }
+    }
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  [data-icon] {
+    font-size: 2.5rem;
+    color: black;
+    transition: all 0.2s;
+
+    &:hover {
+      color: var(--dark-blue);
+    }
+  }
+</style>
