@@ -3,21 +3,40 @@ import { Image } from "astro:assets";
 import logo from "../assets/language.png";
 import "@fontsource/pacifico";
 import Button from "./Button.astro";
+
+type NavItem = {
+  label: string;
+  id: string;
+};
+
+const navItems: NavItem[] = [
+  { label: "Главная", id: "home" },
+  { label: "Обо мне", id: "about" },
+  { label: "Контакты", id: "contacts" },
+  { label: "Блог", id: "blog" },
+];
 ---
 
 <div class="header">
   <div class="left">
-    <div class="logo">
-      <Image src={logo} alt="website logo" class="logo-img" />
-      <span class="name">Алиса Суетнова</span>
-    </div>
+    <a href="/" class="logo-link">
+      <div class="logo">
+        <Image src={logo} alt="website logo" class="logo-img" />
+        <span class="name">Алиса Суетнова</span>
+      </div>
+    </a>
 
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><a href="#" class="nav-link">Главная</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Обо мне</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Контакты</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Блог</a></li>
+        {
+          navItems.map((item: NavItem) => (
+            <li class="nav-item">
+              <a href="#" class="nav-link" id={item.id}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </div>
@@ -33,6 +52,25 @@ import Button from "./Button.astro";
     </Button>
   </div>
 </div>
+
+<script>
+  import { scrollScript } from "../utils/scroll-script";
+
+  scrollScript();
+
+  // document.querySelectorAll(".nav-link").forEach((anchor) => {
+  //   anchor.addEventListener("click", function (this: HTMLElement, e: Event) {
+  //     e.preventDefault();
+
+  //     const targetId = "section-" + this.id; // Construct the ID of the target section
+  //     const targetSection = document.getElementById(targetId);
+
+  //     if (targetSection) {
+  //       targetSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the target section
+  //     }
+  //   });
+  // });
+</script>
 
 <style>
   & .header {
@@ -54,6 +92,11 @@ import Button from "./Button.astro";
         border: none;
       }
     }
+  }
+
+  .logo-link {
+    text-decoration: none;
+    color: inherit;
   }
 
   & .logo {

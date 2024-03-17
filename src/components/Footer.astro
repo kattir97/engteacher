@@ -5,7 +5,7 @@ import logo from "../assets/language.png";
 import "@fontsource/tektur";
 ---
 
-<section class="footer">
+<section class="footer" id="section-footer">
   <div class="container">
     <div class="logo">
       <Image src={logo} alt="website logo" class="logo-img" />
@@ -14,10 +14,10 @@ import "@fontsource/tektur";
 
     <nav class="nav">
       <ul class="nav-list">
-        <li class="nav-item"><a href="#" class="nav-link">главная</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">обо мне</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">контакты</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">блог</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" id="home">главная</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" id="about">обо мне</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" id="contacts">контакты</a></li>
+        <li class="nav-item"><a href="#" class="nav-link" id="blog">блог</a></li>
       </ul>
     </nav>
 
@@ -34,6 +34,12 @@ import "@fontsource/tektur";
     </div>
   </div>
 </section>
+
+<script>
+  import { scrollScript } from "../utils/scroll-script";
+
+  scrollScript();
+</script>
 
 <style>
   .footer {
