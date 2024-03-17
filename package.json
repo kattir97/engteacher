@@ -16,6 +16,7 @@
     "@fontsource/sofia-sans": "^5.0.12",
     "@fontsource/tektur": "^5.0.4",
     "astro": "^4.4.10",
+    "astro-icon": "^1.1.0",
     "typescript": "^5.3.3"
   }
 }

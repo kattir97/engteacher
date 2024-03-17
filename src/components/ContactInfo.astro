@@ -1,0 +1,111 @@
+---
+import { Icon } from "astro-icon/components";
+import "@fontsource/tektur";
+---
+
+<Fragment>
+  <div class="content-box">
+    <span class="heading-4">Контакты</span>
+    <p class="paragraph">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quasi dolore distinctio quo
+      minus quibusdam, illum tempore, rem placeat, odio voluptatum porro architecto veritatis aut.
+    </p>
+
+    <div class="info">
+      <div class="info-item">
+        <div class="square">
+          <Icon name="location" />
+        </div>
+        <h3 class="item-title">Наш Адрес</h3>
+        <h4 class="item-subtitle">Россия, г. Прокопьевск, Речной пер., д. 1 кв.18</h4>
+      </div>
+      <div class="info-item">
+        <div class="square">
+          <Icon name="phone" />
+        </div>
+        <h3 class="item-title">Номер Телефона</h3>
+        <a href="tel:+79653891116" class="item-subtitle tel">+7 965-389-11-16</a>
+      </div>
+      <div class="info-item">
+        <div class="square">
+          <Icon name="email" />
+        </div>
+        <h3 class="item-title">Электронная Почта</h3>
+        <a href="mailto:aikaeng@outlook.com" class="item-subtitle tel">aikaeng@outlook.com</a>
+      </div>
+    </div>
+  </div>
+</Fragment>
+
+<style>
+  .content-box {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+
+  .heading-4 {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  .paragraph {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+    color: var(--dark-grey);
+    width: 70%;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+
+  .info-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(2, 1fr);
+    width: 50%;
+    justify-content: center;
+    align-items: start;
+    font-family: "Tektur", sans-serif;
+
+    & .square {
+      width: 5rem;
+      height: 5rem;
+      background-color: var(--mid-blue);
+      border-radius: 0.5rem;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-row: 1/-1;
+      font-size: 2.5rem;
+    }
+
+    & .item-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    & .item-subtitle {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark-grey);
+    }
+
+    & .tel {
+      text-decoration: none;
+      transition: all 0.2s;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+</style>

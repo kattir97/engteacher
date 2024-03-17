@@ -1,0 +1,99 @@
+---
+import ContactInfo from "./ContactInfo.astro";
+import Button from "./Button.astro";
+---
+
+<section class="contact">
+  <h1 class="heading-lg">Связаться с нами</h1>
+  <div class="container">
+    <ContactInfo />
+    <div class="form-box">
+      <form action="#" class="form">
+        <div class="input-item">
+          <input type="text" class="input" id="name" placeholder="Имя" required />
+        </div>
+        <div class="input-item">
+          <input type="email" class="input" id="email" placeholder="Электронная почта" required />
+        </div>
+        <div class="input-item">
+          <input type="tel" class="input" id="tel" placeholder="Номер телефона" required />
+        </div>
+        <div class="input-item">
+          <textarea class="input" id="message" placeholder="Ваше сообщение" rows="5"></textarea>
+        </div>
+
+        <button class="btn">Отправить</button>
+      </form>
+    </div>
+
+    <style>
+      .contact {
+        padding: var(--section-pd);
+      }
+
+      .container {
+        display: flex;
+        gap: 5rem;
+      }
+
+      .form-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .form {
+        background-color: var(--mid-blue);
+        padding: 3rem;
+        flex: 0 0 70%;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1.2rem 2rem;
+        border-radius: 0.3rem;
+        border: none;
+        border-bottom: 3px solid transparent;
+        outline: none;
+        font-size: 1.4rem;
+        transition: all 0.2s;
+        font-family: inherit;
+
+        &:focus {
+          border-bottom: 3px solid var(--tertiary-1);
+        }
+
+        &:valid {
+          border-bottom: 3px solid var(--tertiary-4);
+        }
+      }
+
+      #message {
+        resize: vertical;
+      }
+
+      .btn {
+        border: none;
+        padding: 1.2rem 2rem;
+        background-color: var(--tertiary-1);
+        font-size: 1.6rem;
+        font-family: "Sofia Sans", system-ui, sans-serif;
+        border-radius: 3px;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 2px;
+        transition: all 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--tertiary-4);
+        }
+      }
+    </style>
+  </div>
+</section>
