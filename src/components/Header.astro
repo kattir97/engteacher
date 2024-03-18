@@ -18,30 +18,29 @@ const navItems: NavItem[] = [
 ---
 
 <div class="header">
-  <div class="left">
-    <a href="/" class="logo-link">
-      <div class="logo">
-        <Image src={logo} alt="website logo" class="logo-img" />
-        <span class="name">Алиса Суетнова</span>
-      </div>
-    </a>
+  <a href="/" class="logo-link">
+    <div class="logo">
+      <Image src={logo} alt="website logo" class="logo-img" />
+      <span class="name">Алиса Суетнова</span>
+    </div>
+  </a>
+  <input id="menu-toggle" type="checkbox" />
+  <label class="menu-button-container" for="menu-toggle">
+    <div class="menu-button"></div>
+  </label>
+  <nav class="nav-list">
+    {
+      navItems.map((item: NavItem) => (
+        <li class="nav-item">
+          <a href="#" class="nav-link" id={item.id}>
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </nav>
 
-    <nav class="nav">
-      <ul class="nav-list">
-        {
-          navItems.map((item: NavItem) => (
-            <li class="nav-item">
-              <a href="#" class="nav-link" id={item.id}>
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </div>
-
-  <div class="right">
+  <div class="btn">
     <Button
       bgColor="primary"
       classes="btn-primary"
@@ -57,41 +56,126 @@ const navItems: NavItem[] = [
   import { scrollScript } from "../utils/scroll-script";
 
   scrollScript();
-
-  // document.querySelectorAll(".nav-link").forEach((anchor) => {
-  //   anchor.addEventListener("click", function (this: HTMLElement, e: Event) {
-  //     e.preventDefault();
-
-  //     const targetId = "section-" + this.id; // Construct the ID of the target section
-  //     const targetSection = document.getElementById(targetId);
-
-  //     if (targetSection) {
-  //       targetSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the target section
-  //     }
-  //   });
-  // });
 </script>
 
 <style>
-  & .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  /* =====RESPONSIVE NAV===== */
 
-    & .left {
+  .btn {
+    @media (max-width: 600px) {
+      & {
+        display: none;
+      }
+    }
+  }
+
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  .menu-button,
+  .menu-button::before,
+  .menu-button::after {
+    display: block;
+    background-color: #000;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+  }
+
+  .menu-button::before {
+    content: "";
+    margin-top: -8px;
+  }
+
+  .menu-button::after {
+    content: "";
+    margin-top: 8px;
+  }
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+  }
+
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+  }
+
+  @media (max-width: 600px) {
+    .menu-button-container {
+      display: flex;
+    }
+
+    .nav-list {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 55px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0 !important;
+    }
+
+    .nav-list li {
+      height: 0;
+      margin: 0;
+      padding: 0 !important;
+      border: 0;
+      display: none;
+      overflow: hidden;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    #menu-toggle:checked ~ .nav-list li {
+      height: 2.5em;
+      padding: 0.5em;
+      display: flex;
+      border-bottom: 1px solid #444;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .nav-list > li {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10rem;
+      margin: 0;
+      padding: 0.5rem 0;
+      width: 100%;
+      color: white;
+      background-color: var(--dark-blue);
     }
 
-    & .right {
-      & .button {
-        border-radius: 1.5rem;
-        padding: 1rem 2rem;
-        border: none;
-      }
+    .nav-item .nav-link {
+      color: #fff !important;
     }
+  }
+
+  /* =====RESPONSIVE NAV===== */
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .logo-link {
@@ -115,24 +199,22 @@ const navItems: NavItem[] = [
     }
   }
 
-  & .nav {
-    & .nav-list {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5rem;
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
 
-      & .nav-item {
-        font-size: 1.7rem;
-        font-weight: 700;
-        & .nav-link {
-          text-decoration: none;
-          color: var(--dark-blue);
+    & .nav-item {
+      font-size: 1.7rem;
+      font-weight: 700;
+      & .nav-link {
+        text-decoration: none;
+        color: var(--dark-blue);
 
-          &:hover {
-            color: var(--light-blue);
-          }
+        &:hover {
+          color: var(--light-blue);
         }
       }
     }
