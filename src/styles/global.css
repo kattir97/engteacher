@@ -166,6 +166,10 @@ table {
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+
+  @media (max-width: 900px) {
+    font-size: 56.25%;
+  }
 }
 
 *,

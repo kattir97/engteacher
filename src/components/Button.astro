@@ -28,6 +28,18 @@ const buttonColor =
 <button data-size={size} class:list={classes}><slot /></button>
 
 <style define:vars={{ buttonColor, boxShadow, translate }}>
+  .hero-btn {
+    @media (max-width: 900px) {
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+    }
+  }
+
   button {
     border-radius: 1.5rem;
     padding: 1em 1.5em;
