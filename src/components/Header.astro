@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import logo from "../assets/language.png";
 import "@fontsource/pacifico";
-import Button from "./Button.astro";
+import CallButton from "./CallButton.astro";
 
 type NavItem = {
   label: string;
@@ -41,14 +41,7 @@ const navItems: NavItem[] = [
   </nav>
 
   <div class="btn">
-    <Button
-      bgColor="primary"
-      classes="btn-primary"
-      boxShadow="0 1rem 2rem rgba(82, 79, 213, 0.2)"
-      animated
-    >
-      Связаться
-    </Button>
+    <CallButton />
   </div>
 </div>
 

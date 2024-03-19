@@ -1,0 +1,64 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="container">
+  <span class="pulse-button">
+    <Icon name="phone" />
+  </span>
+</div>
+
+<style>
+  .container {
+    height: 100%;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    background: #fff;
+  }
+
+  .pulse-button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.3rem;
+    font-family: "Trebuchet MS", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 100px;
+    letter-spacing: -1px;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    background: #5a99d4;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(90, 153, 212, 0.5);
+    animation: pulse 1.5s infinite;
+  }
+
+  .pulse-button:hover {
+    -webkit-animation: none;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(0.9);
+    }
+    70% {
+      transform: scale(1);
+
+      box-shadow: 0 0 0 1rem rgba(90, 153, 212, 0);
+    }
+    100% {
+      transform: scale(0.9);
+      box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+    }
+  }
+
+  [data-icon] {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+</style>
