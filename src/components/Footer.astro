@@ -33,6 +33,15 @@ import "@fontsource/tektur";
       </a>
     </div>
   </div>
+
+  <div class="copyright">
+    <h4 class="terms">Terms of Use</h4>
+    <h4 class="copy">
+      &copy; 2024 Alice Eng. All rights reserved. Developed by <a href="#" class="dev"
+        >Sultan Kattir</a
+      >
+    </h4>
+  </div>
 </section>
 
 <script>
@@ -44,13 +53,32 @@ import "@fontsource/tektur";
 <style>
   .footer {
     padding: 2rem 0;
-    border-top: 2px solid var(--light-grey-1);
+    border-top: 2px solid var(--light-grey-2);
   }
 
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+
+    & .dev {
+      text-decoration: none;
+      color: var(--dark-blue);
+      font-family: "Tektur";
+      font-weight: 600;
+
+      &:hover {
+        color: var(--mid-blue);
+      }
+    }
   }
 
   & .logo {
