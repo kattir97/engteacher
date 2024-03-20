@@ -46,16 +46,25 @@ import "@fontsource/tektur";
 <style>
   .about {
     padding: var(--section-pd);
+
+    @media (max-width: 900px) {
+      padding: 4rem 0;
+    }
+
+    @media (max-width: 600px) {
+      padding: 2rem 0;
+    }
   }
 
   .container {
-    display: flex;
-    gap: 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    gap: 4rem;
   }
 
   .flex-box {
-    flex: 0 0 50%;
-
+    align-self: center;
+    justify-self: center;
     & .img-box {
       overflow: hidden;
       height: 50rem;
@@ -85,6 +94,10 @@ import "@fontsource/tektur";
       font-weight: 600;
       margin-bottom: 1rem;
       font-family: "Sofia Sans", sans-serif;
+
+      @media (max-width: 600px) {
+        text-align: center;
+      }
     }
 
     & .paragraph {
