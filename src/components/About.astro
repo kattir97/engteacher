@@ -58,18 +58,33 @@ import "@fontsource/tektur";
 
   .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 4rem;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .flex-box {
     align-self: center;
     justify-self: center;
+
     & .img-box {
       overflow: hidden;
       height: 50rem;
       width: 50rem;
       border-radius: 50%;
+
+      @media (max-width: 900px) {
+        height: 40rem;
+        width: 40rem;
+      }
+
+      @media (max-width: 600px) {
+        height: 25rem;
+        width: 25rem;
+      }
 
       & .img {
         width: 100%;
@@ -89,6 +104,7 @@ import "@fontsource/tektur";
   }
 
   .item {
+    padding: 1rem;
     & .heading-md {
       font-size: 3rem;
       font-weight: 600;

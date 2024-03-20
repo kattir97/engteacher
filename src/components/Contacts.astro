@@ -28,23 +28,34 @@ import ContactInfo from "./ContactInfo.astro";
     <style>
       .contacts {
         padding: var(--section-pd);
+
+        @media (max-width: 900px) {
+          padding: 6rem 0;
+        }
+
+        @media (max-width: 600px) {
+          padding: 4rem 0;
+        }
       }
 
       .container {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+
         gap: 5rem;
       }
 
       .form-box {
-        width: 100%;
+        min-width: 30rem;
+        max-width: 50rem;
         display: flex;
-        justify-content: center;
+        justify-content: start;
       }
 
       .form {
+        width: 100%;
         background-color: var(--mid-blue);
         padding: 3rem;
-        flex: 0 0 70%;
         border-radius: 1rem;
         display: flex;
         flex-direction: column;
