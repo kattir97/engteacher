@@ -55,11 +55,20 @@ import "@fontsource/sofia-sans";
 <style>
   .reviews {
     padding: var(--section-pd);
+
+    @media (max-width: 900px) {
+      padding: 6rem 0;
+    }
+
+    @media (max-width: 600px) {
+      padding: 4rem 0;
+    }
   }
 
   .container {
-    display: flex;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap: 3rem;
   }
 
   .review {
