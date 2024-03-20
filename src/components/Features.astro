@@ -49,13 +49,26 @@ import "@fontsource/sofia-sans";
   .features {
     padding: var(--section-pd);
     text-align: center;
+
+    @media (max-width: 900px) {
+      padding: 4rem 0;
+    }
+
+    @media (max-width: 600px) {
+      padding: 2rem 0;
+    }
   }
 
   .features-box {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     justify-content: center;
     align-items: center;
     gap: 5rem;
+
+    @media (max-width: 600px) {
+      padding: 0 2rem;
+    }
   }
 
   & .feature {
