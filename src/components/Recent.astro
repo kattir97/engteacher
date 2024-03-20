@@ -49,11 +49,20 @@ import "@fontsource/tektur";
   <style>
     .recent {
       padding: var(--section-pd);
+
+      @media (max-width: 900px) {
+        padding: 6rem 0;
+      }
+
+      @media (max-width: 600px) {
+        padding: 4rem 0;
+      }
     }
 
     .articles {
-      display: flex;
-      gap: 5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+      gap: 3rem;
       justify-content: center;
     }
 
