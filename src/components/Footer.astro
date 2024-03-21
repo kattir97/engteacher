@@ -3,14 +3,12 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import logo from "../assets/language.png";
 import "@fontsource/tektur";
+import Logo from "./Logo.astro";
 ---
 
 <section class="footer" id="section-footer">
   <div class="container">
-    <div class="logo">
-      <Image src={logo} alt="website logo" class="logo-img" />
-      <span class="name">Алиса Суетнова</span>
-    </div>
+    <Logo size="sm" />
 
     <nav class="nav">
       <ul class="nav-list">
@@ -43,12 +41,6 @@ import "@fontsource/tektur";
     </h4>
   </div>
 </section>
-
-<script>
-  import { scrollScript } from "../utils/scroll-script";
-
-  scrollScript();
-</script>
 
 <style>
   .footer {
@@ -89,22 +81,6 @@ import "@fontsource/tektur";
       &:hover {
         color: var(--mid-blue);
       }
-    }
-  }
-
-  & .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    & .logo-img {
-      width: 3rem;
-      height: 3rem;
-    }
-
-    & .name {
-      font-size: 1.6rem;
-      font-family: "Pacifico", cursive;
     }
   }
 

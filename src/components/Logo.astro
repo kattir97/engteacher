@@ -1,0 +1,52 @@
+---
+import logo from "../assets/language.png";
+import { Image } from "astro:assets";
+
+interface Props {
+  size: "sm" | "md" | "lg";
+}
+const { size } = Astro.props;
+
+const textFontSize = size === "sm" ? "1.6rem" : size === "md" ? "2rem" : "3rem";
+---
+
+<a href="/" class="logo-link">
+  <div class="logo">
+    <Image src={logo} alt="website logo" class="logo-img" data-logo-size={size} />
+    <span class="name">Алиса Суетнова</span>
+  </div>
+</a>
+
+<style define:vars={{ textFontSize }}>
+  .logo-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  & .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    & .name {
+      font-size: var(--textFontSize);
+      font-family: "Pacifico", cursive;
+    }
+  }
+
+  [data-logo-size="sm"] {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  [data-logo-size="md"] {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  [data-logo-size="lg"] {
+    width: 5rem;
+    height: 5rem;
+  }
+</style>

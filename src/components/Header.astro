@@ -1,8 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/language.png";
 import "@fontsource/pacifico";
 import CallButton from "./CallButton.astro";
+import Logo from "./Logo.astro";
 
 type NavItem = {
   label: string;
@@ -18,12 +17,7 @@ const navItems: NavItem[] = [
 ---
 
 <div class="header">
-  <a href="/" class="logo-link">
-    <div class="logo">
-      <Image src={logo} alt="website logo" class="logo-img" />
-      <span class="name">Алиса Суетнова</span>
-    </div>
-  </a>
+  <Logo size="md" />
   <input id="menu-toggle" type="checkbox" />
   <label class="menu-button-container" for="menu-toggle">
     <div class="menu-button"></div>
@@ -44,12 +38,6 @@ const navItems: NavItem[] = [
     <CallButton />
   </div>
 </div>
-
-<script>
-  import { scrollScript } from "../utils/scroll-script";
-
-  scrollScript();
-</script>
 
 <style>
   /* =====RESPONSIVE NAV===== */
@@ -171,27 +159,6 @@ const navItems: NavItem[] = [
     align-items: center;
   }
 
-  .logo-link {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  & .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    & .logo-img {
-      width: 4rem;
-      height: 4rem;
-    }
-
-    & .name {
-      font-size: 2rem;
-      font-family: "Pacifico", cursive;
-    }
-  }
-
   .nav-list {
     list-style: none;
     display: flex;
@@ -199,12 +166,15 @@ const navItems: NavItem[] = [
     align-items: center;
     gap: 2.5rem;
 
+    font-family: "Tektur";
+
     & .nav-item {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       font-weight: 700;
       & .nav-link {
         text-decoration: none;
         color: var(--dark-blue);
+        text-transform: lowercase;
 
         &:hover {
           color: var(--light-blue);

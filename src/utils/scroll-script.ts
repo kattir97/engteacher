@@ -6,7 +6,10 @@ export const scrollScript = () => {
       const targetId = "section-" + this.id; // Construct the ID of the target section
       const targetSection = document.getElementById(targetId);
 
-      if (targetSection) {
+      if (this.id === "blog") {
+        // Navigate to the blog page
+        window.location.href = "/blog"; // Update the URL to the actual blog page
+      } else if (targetSection) {
         targetSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the target section
       }
     });
