@@ -168,6 +168,8 @@ table {
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  scroll-behavior: smooth;
 
   @media (max-width: 900px) {
     font-size: 56.25%;
@@ -178,4 +180,22 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+.heading-lg {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Sofia Sans", sans-serif;
+  margin-bottom: 8rem;
+
+  @media (max-width: 900px) {
+    font-size: 3rem;
+    margin-bottom: 6rem;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
 }

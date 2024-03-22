@@ -2,6 +2,8 @@
 import "../styles/global.css";
 // Supports weights 200-900
 import "@fontsource/nunito-sans";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="ru">
@@ -12,7 +14,9 @@ import "@fontsource/nunito-sans";
   </head>
   <body>
     <div class="container">
+      <Header />
       <slot />
+      <Footer />
     </div>
   </body>
 </html>
@@ -25,14 +29,18 @@ import "@fontsource/nunito-sans";
 
 <style>
   .container {
-    padding: 2rem 10rem;
+    padding: 2rem 15rem;
+
+    @media (max-width: 1200px) {
+      padding: 2rem 7rem;
+    }
 
     @media (max-width: 900px) {
-      padding: 5rem;
+      padding: 2rem 5rem;
     }
 
     @media (max-width: 600px) {
-      padding: 2.5rem;
+      padding: 1rem 2.5rem;
     }
   }
 </style>

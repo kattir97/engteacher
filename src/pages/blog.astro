@@ -1,9 +1,37 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
+import "@fontsource/pacifico";
+import "@fontsource/sofia-sans";
+import { Icon } from "astro-icon/components";
+import BlogHeader from "../components/BlogHeader.astro";
+import BlogPreview from "../components/BlogPreview.astro";
 ---
 
 <MainLayout>
-  <header class="header">
-    <nav class="nav"></nav>
-  </header>
+  <div class="container">
+    <BlogHeader />
+
+    <div class="blogs">
+      <BlogPreview />
+      <BlogPreview />
+      <BlogPreview />
+    </div>
+  </div>
 </MainLayout>
+
+<style>
+  .container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  .blogs {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap: 4rem;
+    padding: 5rem 0;
+  }
+</style>

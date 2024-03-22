@@ -9,9 +9,16 @@ export const scrollScript = () => {
       if (this.id === "blog") {
         // Navigate to the blog page
         window.location.href = "/blog"; // Update the URL to the actual blog page
-      } else if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the target section
       }
+
+      // else if (targetSection) {
+      //   targetSection.scrollIntoView({ behavior: "smooth" }); // Scroll smoothly to the target section
+      // }
+
+      else {
+        window.location.href = "/#section-" + this.id;
+      }
+
     });
   });
 }
