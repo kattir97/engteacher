@@ -5,28 +5,9 @@ import "@fontsource/sofia-sans";
 import BlogHeader from "../components/BlogHeader.astro";
 import { getAllPosts } from "../lib/consmic";
 import BlogCard from "../components/BlogCard.astro";
-
-interface BlogPost {
-  slug: string;
-  title: string;
-  created_at: string;
-  metadata: {
-    content: string;
-    description: string;
-    post: string;
-    image: {
-      url: string;
-    };
-    excerpt: string;
-    tags: {
-      title: string;
-    }[];
-  };
-}
+import { type BlogPost } from "../utils/types";
 
 const data: BlogPost[] = await getAllPosts();
-
-console.log(data[0].metadata.excerpt);
 ---
 
 <MainLayout>

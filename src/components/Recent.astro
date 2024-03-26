@@ -2,48 +2,42 @@
 import Image from "astro/components/Image.astro";
 import verbWas from "../assets/verb-was.png";
 import "@fontsource/tektur";
+import { type BlogPost } from "../utils/types";
+import { getAllPosts } from "../lib/consmic";
+
+const data: BlogPost[] = await getAllPosts();
+const posts = data.slice(-3);
 ---
 
 <section class="recent" id="section-recent">
   <h1 class="heading-lg">Последние статьи</h1>
 
   <div class="articles">
-    <div class="article">
-      <Image src={verbWas} alt="pic of verb was" class="img" />
-      <div class="content">
-        <h3 class="title">What Part of Speech Is “Was”?</h3>
-        <p class="paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, doloremque repellat
-          accusantium labore expedita autem?
-        </p>
+    {
+      posts.map((post) => {
+        return (
+          <div class="article">
+            <div class="img-box">
+              <Image
+                src={post.metadata.image.url}
+                alt="picture"
+                class="img"
+                width={30}
+                height={30}
+              />
+            </div>
+            <div class="content">
+              <h3 class="title">{post.title}</h3>
+              <p class="paragraph">{`${post.metadata.excerpt.slice(0, 150)}...`}</p>
 
-        <a class="btn">Read More</a>
-      </div>
-    </div>
-    <div class="article">
-      <Image src={verbWas} alt="pic of verb was" class="img" />
-      <div class="content">
-        <h3 class="title">What Part of Speech Is “Was”?</h3>
-        <p class="paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, doloremque repellat
-          accusantium labore expedita autem?
-        </p>
-
-        <button class="btn">Read More</button>
-      </div>
-    </div>
-    <div class="article">
-      <Image src={verbWas} alt="pic of verb was" class="img" />
-      <div class="content">
-        <h3 class="title">What Part of Speech Is “Was”?</h3>
-        <p class="paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, doloremque repellat
-          accusantium labore expedita autem?
-        </p>
-
-        <button class="btn">Read More</button>
-      </div>
-    </div>
+              <a href={`/blog/${post.slug}`} class="btn">
+                Read More
+              </a>
+            </div>
+          </div>
+        );
+      })
+    }
   </div>
 
   <style>
@@ -61,7 +55,7 @@ import "@fontsource/tektur";
 
     .articles {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 35rem));
       gap: 3rem;
       justify-content: center;
       align-items: center;
@@ -76,6 +70,12 @@ import "@fontsource/tektur";
       border: 2px solid var(--light-grey-1);
       font-size: 1.5rem;
       box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+      height: 45rem;
+
+      & .img-box {
+        width: 100%;
+        height: 50%;
+      }
 
       & .img {
         width: 100%;
@@ -87,6 +87,11 @@ import "@fontsource/tektur";
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        height: 100%;
+      }
+
+      & .paragraph {
+        line-height: 1.3;
       }
 
       & .title {
@@ -110,6 +115,7 @@ import "@fontsource/tektur";
         transition: all 0.2s;
         position: relative;
         border-bottom: 2px solid transparent;
+        margin-top: auto;
 
         &:hover {
           color: var(--secondary-color);
