@@ -1,0 +1,106 @@
+---
+import { getAllPosts } from "../../lib/consmic";
+import { Image } from "astro:assets";
+import "@fontsource/nunito-sans";
+import "@fontsource/sofia-sans";
+
+import BlogpostLayout from "../../layouts/BlogpostLayout.astro";
+
+interface Post {
+  slug: string;
+  title: string;
+  created_at: string;
+  metadata: {
+    image: {
+      url: string;
+      imgix_url: string;
+    };
+    excerpt: string;
+    content: string;
+    tags: {
+      title: string;
+    }[];
+  };
+}
+
+export async function getStaticPaths() {
+  const data = (await getAllPosts()) || [];
+  console.log(data);
+
+  return data.map((post: Post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+}
+
+const { post }: { post: Post } = Astro.props;
+---
+
+<BlogpostLayout>
+  <div class="blogpost">
+    <h1 class="title">{post.title.toString()}</h1>
+    <div class="img-box">
+      <Image
+        src={post.metadata.image.imgix_url}
+        alt="post image"
+        width={720}
+        height={500}
+        class="img"
+      />
+    </div>
+
+    <div set:html={post.metadata.content} id="content" />
+    <a href="/blog" class="return">🔙 Вернуться назад</a>
+  </div>
+</BlogpostLayout>
+
+<style>
+  .blogpost {
+    padding: 5rem 8vw;
+
+    @media (max-width) {
+      padding: 2.5rem 2rem;
+    }
+  }
+
+  #content {
+    font-family: "Nunito Sans";
+    font-size: 1.8rem;
+    padding: 2rem 0;
+
+    & ul li:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 4rem;
+    font-family: "Sofia Sans";
+  }
+
+  .img-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+
+    & .img {
+      border-radius: 0.5rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .return {
+    text-decoration: none;
+    font-size: 2rem;
+    color: darkslategray;
+    font-weight: bold;
+
+    &:hover {
+      color: cadetblue;
+    }
+  }
+</style>

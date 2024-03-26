@@ -1,32 +1,47 @@
 ---
-import german from "../assets/german.png";
+// import german from "../assets/german.png";
+
+interface Props {
+  title: string;
+  imageUrl: string;
+  date: string;
+  excerpt: string;
+  slug: string;
+  tags: {
+    title: string;
+  }[];
+}
+
+const { title, imageUrl, date, excerpt, tags, slug } = Astro.props;
 ---
 
-<div class="blogpreview">
-  <a href="#" class="img-link">
+<div class="blogcard">
+  <a href={`/blog/${slug}`} class="img-link">
     <div class="img">
       <div class="overlay"></div>
     </div>
   </a>
 
   <div class="content">
-    <span class="date">April 15, 2021 </span>
-    <a href="#" class="title-link">
-      <h1 class="title">4 Steps to Learn English Fast</h1>
+    <span class="date">{new Date(date).toLocaleDateString()}</span>
+    <a href={`/blog/${slug}`} class="title-link">
+      <h1 class="title">{title}</h1>
     </a>
     <p class="text">
-      Learning any language is a journey full of stops and starts, and learning English is no
-      different.…
+      {`${excerpt.slice(0, 150)}...`}
     </p>
-    <a href="#" class="tag">Tips</a>
+    <a href="#" class="tag">{tags.map((tag) => tag.title)}</a>
   </div>
 </div>
 
-<style>
-  .blogpreview {
+<style define:vars={{ imageUrl }}>
+  .blogcard {
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 50rem;
     /* width: 35rem; */
     /* transition: all 0.2s;
 
@@ -68,7 +83,7 @@ import german from "../assets/german.png";
         left: 0;
         right: 0;
         bottom: 0;
-        background-image: url("../assets/german.png");
+        background-image: var(--imageUrl);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -88,7 +103,7 @@ import german from "../assets/german.png";
       padding: 2rem;
       display: flex;
       flex-direction: column;
-      /* justify-content: start; */
+      height: 100%;
       align-items: start;
       gap: 2rem;
 
@@ -118,6 +133,7 @@ import german from "../assets/german.png";
         font-weight: 600;
         letter-spacing: 1.5px;
         color: var(--primary-color);
+        margin-top: auto;
 
         &:hover {
           color: var(--tertiary-2);

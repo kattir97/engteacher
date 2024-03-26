@@ -8,8 +8,8 @@ const cosmic = createBucketClient({
 export async function getAllPosts() {
   const data = await cosmic.objects
     .find({
-      type: "posts",
+      type: "blogposts",
     })
-    .props("title,slug,metadata,created_at");
+    .props("title, slug, 'metadata', created_at");
   return data.objects;
 }

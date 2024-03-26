@@ -1,11 +1,32 @@
 ---
-import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import "@fontsource/pacifico";
 import "@fontsource/sofia-sans";
-import { Icon } from "astro-icon/components";
 import BlogHeader from "../components/BlogHeader.astro";
-import BlogPreview from "../components/BlogPreview.astro";
+import { getAllPosts } from "../lib/consmic";
+import BlogCard from "../components/BlogCard.astro";
+
+interface BlogPost {
+  slug: string;
+  title: string;
+  created_at: string;
+  metadata: {
+    content: string;
+    description: string;
+    post: string;
+    image: {
+      url: string;
+    };
+    excerpt: string;
+    tags: {
+      title: string;
+    }[];
+  };
+}
+
+const data: BlogPost[] = await getAllPosts();
+
+console.log(data[0].metadata.excerpt);
 ---
 
 <MainLayout>
@@ -13,9 +34,18 @@ import BlogPreview from "../components/BlogPreview.astro";
     <BlogHeader />
 
     <div class="blogs">
-      <BlogPreview />
-      <BlogPreview />
-      <BlogPreview />
+      {
+        data.map((post) => (
+          <BlogCard
+            title={post.title}
+            excerpt={post.metadata.excerpt}
+            date={post.created_at}
+            imageUrl={`url(${post.metadata.image.url})`}
+            tags={post.metadata.tags}
+            slug={post.slug}
+          />
+        ))
+      }
     </div>
   </div>
 </MainLayout>
@@ -30,7 +60,8 @@ import BlogPreview from "../components/BlogPreview.astro";
   .blogs {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 35rem));
+    justify-content: center;
     gap: 4rem;
     padding: 5rem 0;
   }

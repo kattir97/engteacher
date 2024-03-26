@@ -26,6 +26,11 @@ import { Icon } from "astro-icon/components";
       font-size: 3rem;
       font-family: "Pacifico", cursive;
       margin-bottom: 4rem;
+      text-align: center;
+
+      @media (max-width: 400px) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -41,6 +46,10 @@ import { Icon } from "astro-icon/components";
 
     @media (max-width: 600px) {
       width: 35rem;
+    }
+
+    @media (max-width: 400px) {
+      width: 30rem;
     }
 
     & .search-input {
