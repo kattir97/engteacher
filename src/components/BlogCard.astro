@@ -30,7 +30,15 @@ const { title, imageUrl, date, excerpt, tags, slug } = Astro.props;
     <p class="text">
       {`${excerpt.slice(0, 150)}...`}
     </p>
-    <a href="#" class="tag">{tags.map((tag) => tag.title)}</a>
+    <div class="tags">
+      {
+        tags.map((tag) => (
+          <a href="#" class="tag">
+            {tag.title}
+          </a>
+        ))
+      }
+    </div>
   </div>
 </div>
 
@@ -124,6 +132,14 @@ const { title, imageUrl, date, excerpt, tags, slug } = Astro.props;
         line-height: 1.5;
       }
 
+      & .tags {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: 100%;
+      }
+
       & .tag {
         font-family: "Tektur";
         font-size: 1.5rem;
@@ -133,7 +149,6 @@ const { title, imageUrl, date, excerpt, tags, slug } = Astro.props;
         font-weight: 600;
         letter-spacing: 1.5px;
         color: var(--primary-color);
-        margin-top: auto;
 
         &:hover {
           color: var(--tertiary-2);
