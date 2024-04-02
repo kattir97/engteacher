@@ -3,30 +3,14 @@ import MainLayout from "../layouts/MainLayout.astro";
 import "@fontsource/pacifico";
 import "@fontsource/sofia-sans";
 import BlogHeader from "../components/BlogHeader.astro";
-import { getAllPosts } from "../lib/consmic";
-import BlogCard from "../components/BlogCard.astro";
-import { type BlogPost } from "../utils/types";
-
-const data: BlogPost[] = await getAllPosts();
+import { Blogs } from "../components/Blogs";
 ---
 
 <MainLayout>
   <div class="container">
     <BlogHeader />
-
     <div class="blogs">
-      {
-        data.map((post) => (
-          <BlogCard
-            title={post.title}
-            excerpt={post.metadata.excerpt}
-            date={post.created_at}
-            imageUrl={`url(${post.metadata.image.url})`}
-            tags={post.metadata.tags}
-            slug={post.slug}
-          />
-        ))
-      }
+      <Blogs client:only="solid-js" />
     </div>
   </div>
 </MainLayout>

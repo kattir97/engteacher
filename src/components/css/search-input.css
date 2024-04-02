@@ -1,0 +1,14 @@
+.search-input {
+  width: 100%;
+  padding: 1rem 2rem 1rem 4rem;
+  border: 2px solid var(--light-grey-2);
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  transition: all 0.2s;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-color: var(--tertiary-2);
+  }
+}

@@ -11,13 +11,23 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.6",
+    "@astrojs/react": "^3.1.0",
+    "@astrojs/solid-js": "^4.0.1",
     "@cosmicjs/sdk": "^1.0.11",
     "@fontsource/nunito-sans": "^5.0.12",
     "@fontsource/pacifico": "^5.0.12",
     "@fontsource/sofia-sans": "^5.0.12",
     "@fontsource/tektur": "^5.0.4",
+    "@nanostores/react": "^0.7.2",
+    "@types/lodash": "^4.17.0",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.23",
     "astro": "^4.4.10",
     "astro-icon": "^1.1.0",
+    "lodash": "^4.17.21",
+    "nanostores": "^0.10.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.3.3"
   }
 }

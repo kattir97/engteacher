@@ -1,12 +1,9 @@
 ---
 import Image from "astro/components/Image.astro";
-import verbWas from "../assets/verb-was.png";
 import "@fontsource/tektur";
-import { type BlogPost } from "../utils/types";
-import { getAllPosts } from "../lib/consmic";
 
-const data: BlogPost[] = await getAllPosts();
-const posts = data.slice(-3);
+import { $posts } from "../stores/blogstore";
+const posts = $posts.value?.data.slice(-3) || [];
 ---
 
 <section class="recent" id="section-recent">

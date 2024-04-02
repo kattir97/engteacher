@@ -1,13 +1,17 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Features from "../components/Features.astro";
 import About from "../components/About.astro";
 import Reviews from "../components/Reviews.astro";
 import Recent from "../components/Recent.astro";
 import Contact from "../components/Contacts.astro";
-import Footer from "../components/Footer.astro";
+import { getAllPosts } from "../lib/consmic";
+import { type BlogPost } from "../utils/types";
+import { $posts } from "../stores/blogstore";
+
+const data: BlogPost[] = await getAllPosts();
+$posts.setKey("data", data);
 ---
 
 <MainLayout>

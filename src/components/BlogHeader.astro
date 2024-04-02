@@ -1,11 +1,14 @@
 ---
+import { $posts } from "../stores/blogstore";
+import SearchInput from "./SearchInput";
 import { Icon } from "astro-icon/components";
 ---
 
 <div class="header">
   <h1 class="blog-heading">🎉 Добро пожаловть в мой блог!</h1>
   <div class="search">
-    <input type="text" class="search-input" placeholder="Искать..." />
+    <!-- <input type="text" class="search-input" placeholder="Искать..." /> -->
+    <SearchInput client:load />
     <Icon name="search" class="search-icon" />
   </div>
 </div>
