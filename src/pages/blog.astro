@@ -4,14 +4,17 @@ import "@fontsource/pacifico";
 import "@fontsource/sofia-sans";
 import BlogHeader from "../components/BlogHeader.astro";
 import { Blogs } from "../components/Blogs";
+import Pagination from "../components/Pagination";
+import { $searchQuery } from "../stores/blogstore";
 ---
 
 <MainLayout>
   <div class="container">
     <BlogHeader />
     <div class="blogs">
-      <Blogs client:only="solid-js" />
+      <Blogs client:load />
     </div>
+    <Pagination client:load />
   </div>
 </MainLayout>
 

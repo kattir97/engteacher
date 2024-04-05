@@ -20,7 +20,6 @@ export function SearchInput() {
     $loading.set(false);
   };
 
-  console.log("rerendered");
   useEffect(() => {
     fetchData();
   }, []);
@@ -30,12 +29,24 @@ export function SearchInput() {
     setValue(query);
     $searchQuery.set(query);
 
-    if ($temp.value?.data) {
+    // if ($temp.value?.data) {
+    //   const filtered = arr.filter((post: BlogPost) => {
+    //     return post.title.toLowerCase().includes($searchQuery.get());
+    //   });
+
+    //   $temp.setKey("data", filtered);
+    // }
+  };
+
+  const handleSearch = (e: KeyboardEvent) => {
+    if ($temp.value?.data && e.key === "Enter") {
       const filtered = arr.filter((post: BlogPost) => {
         return post.title.toLowerCase().includes($searchQuery.get());
       });
 
       $temp.setKey("data", filtered);
+      setValue("");
+      $searchQuery.set("");
     }
   };
 
@@ -46,6 +57,7 @@ export function SearchInput() {
       placeholder="Искать..."
       value={value}
       onChange={(e) => handleQuery(e)}
+      onKeyDown={(e) => handleSearch(e)}
     />
   );
 }

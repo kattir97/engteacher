@@ -4,6 +4,7 @@ import "../styles/global.css";
 import "@fontsource/nunito-sans";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html lang="ru">
@@ -18,29 +19,27 @@ import Footer from "../components/Footer.astro";
       <slot />
       <Footer />
     </div>
-  </body>
+  </body><script>
+    import { scrollScript } from "../utils/scroll-script";
+
+    scrollScript();
+  </script>
+
+  <style>
+    .container {
+      padding: 2rem 15rem;
+
+      @media (max-width: 1200px) {
+        padding: 2rem 7rem;
+      }
+
+      @media (max-width: 900px) {
+        padding: 2rem 5rem;
+      }
+
+      @media (max-width: 600px) {
+        padding: 1rem 2.5rem;
+      }
+    }
+  </style>
 </html>
-
-<script>
-  import { scrollScript } from "../utils/scroll-script";
-
-  scrollScript();
-</script>
-
-<style>
-  .container {
-    padding: 2rem 15rem;
-
-    @media (max-width: 1200px) {
-      padding: 2rem 7rem;
-    }
-
-    @media (max-width: 900px) {
-      padding: 2rem 5rem;
-    }
-
-    @media (max-width: 600px) {
-      padding: 1rem 2.5rem;
-    }
-  }
-</style>

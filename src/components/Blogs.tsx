@@ -9,8 +9,6 @@ export function Blogs() {
   const spinner = <h1 className="heading-lg">"Loading..."</h1>;
   const empty = <h1 className="heading-lg">No blogposts were found!</h1>;
 
-  console.log($loading.value);
-
   if ($loading.value) {
     return spinner;
   }
