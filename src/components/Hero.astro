@@ -30,8 +30,13 @@ const bgColors = [
       }
     </div>
     <div class="buttons">
-      <Button size="lg" classes="hv-secondary hero-btn" animated>Узнать больше</Button>
-      <Button size="lg" classes="hv-primary hero-btn" animated>Начать обучение</Button>
+      <Button
+        size="lg"
+        classes="hv-secondary hero-btn know-more"
+        animated
+        onclick="moveToFeatures()">Узнать больше</Button
+      >
+      <Button size="lg" classes="hv-primary hero-btn enroll" animated>Записаться</Button>
     </div>
   </div>
 
@@ -39,6 +44,21 @@ const bgColors = [
     <Image src={heroImg} alt="hero image" class="img" />
   </div>
 </section>
+
+<script>
+  function moveToFeatures() {
+    const features = document.getElementById("section-features");
+    features?.scrollIntoView({ behavior: "smooth" });
+  }
+  function moveToContacts() {
+    const features = document.getElementById("section-contacts");
+    features?.scrollIntoView({ behavior: "smooth" });
+  }
+  const knowMoreBtn = document.querySelector(".know-more");
+  const enrollBtn = document.querySelector(".enroll");
+  knowMoreBtn?.addEventListener("click", () => moveToFeatures());
+  enrollBtn?.addEventListener("click", () => moveToContacts());
+</script>
 
 <style define:vars={{ bgColors }}>
   .hero {

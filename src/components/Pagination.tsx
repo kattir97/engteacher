@@ -12,7 +12,7 @@ function Pagination() {
   console.log("rerendering");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(1);
+  const [postsPerPage] = useState(9);
   const indexOfLastRecord = currentPage * postsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - postsPerPage;
   let data = posts.data;
