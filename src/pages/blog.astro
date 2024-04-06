@@ -6,9 +6,11 @@ import BlogHeader from "../components/BlogHeader.astro";
 import { Blogs } from "../components/Blogs";
 import Pagination from "../components/Pagination";
 import { $searchQuery } from "../stores/blogstore";
+import ModalSearch from "../components/ModalSearch";
 ---
 
 <MainLayout>
+  <ModalSearch client:load />
   <div class="container">
     <BlogHeader />
     <div class="blogs">

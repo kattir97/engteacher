@@ -1,8 +1,6 @@
 import { useEffect, type ChangeEvent, useState } from "react";
 
-import { $loading, $posts, $searchQuery, $temp } from "../stores/blogstore";
-import pkg from "lodash";
-const { debounce } = pkg;
+import { $isModalOpen, $loading, $posts, $searchQuery, $temp } from "../stores/blogstore";
 import { type BlogPost } from "../utils/types";
 import { getAllPosts } from "../lib/consmic";
 import "./css/search-input.css";
@@ -24,30 +22,39 @@ export function SearchInput() {
     fetchData();
   }, []);
 
-  const handleQuery = (event: ChangeEvent<HTMLInputElement>) => {
-    const query: string = event.target.value.toLowerCase();
-    setValue(query);
-    $searchQuery.set(query);
-
-    // if ($temp.value?.data) {
-    //   const filtered = arr.filter((post: BlogPost) => {
-    //     return post.title.toLowerCase().includes($searchQuery.get());
-    //   });
-
-    //   $temp.setKey("data", filtered);
-    // }
+  const openModal = () => {
+    $isModalOpen.set(true);
+    console.log($isModalOpen.value);
   };
 
-  const handleSearch = (e: KeyboardEvent) => {
-    if ($temp.value?.data && e.key === "Enter") {
-      const filtered = arr.filter((post: BlogPost) => {
-        return post.title.toLowerCase().includes($searchQuery.get());
-      });
+  // const handleQuery = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const query: string = event.target.value.toLowerCase();
+  //   setValue(query);
+  //   $searchQuery.set(query);
 
-      $temp.setKey("data", filtered);
-      setValue("");
-      $searchQuery.set("");
-    }
+  //   // if ($temp.value?.data) {
+  //   //   const filtered = arr.filter((post: BlogPost) => {
+  //   //     return post.title.toLowerCase().includes($searchQuery.get());
+  //   //   });
+
+  //   //   $temp.setKey("data", filtered);
+  //   // }
+  // };
+
+  // const handleSearch = (e: KeyboardEvent) => {
+  //   if ($temp.value?.data && e.key === "Enter") {
+  //     const filtered = arr.filter((post: BlogPost) => {
+  //       return post.title.toLowerCase().includes($searchQuery.get());
+  //     });
+
+  //     $temp.setKey("data", filtered);
+  //     setValue("");
+  //     $searchQuery.set("");
+  //   }
+  // };
+
+  const handleInput = () => {
+    setValue("");
   };
 
   return (
@@ -56,8 +63,9 @@ export function SearchInput() {
       className="search-input"
       placeholder="Искать..."
       value={value}
-      onChange={(e) => handleQuery(e)}
-      onKeyDown={(e) => handleSearch(e)}
+      onChange={handleInput}
+      // onKeyDown={(e) => handleSearch(e)}
+      onClick={openModal}
     />
   );
 }

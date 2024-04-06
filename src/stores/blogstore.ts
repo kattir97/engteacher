@@ -7,7 +7,7 @@ export const $temp = deepMap<{ data: BlogPost[] }>({ data: [] });
 
 export const $loading = atom<boolean>(false);
 
-export const $itemsOffset = atom<number>(0);
+export const $isModalOpen = atom<boolean>(false);
 
 
 
