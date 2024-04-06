@@ -86,6 +86,7 @@ const SearchModal: React.FC<ModalProps> = () => {
             );
           })}
         </div>
+        <p className="helper">Что бы закрыть окно поиска нажмите ⌨ 'esc'</p>
       </div>
     </dialog>
   );

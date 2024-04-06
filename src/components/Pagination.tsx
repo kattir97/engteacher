@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { $posts, $temp } from "../stores/blogstore";
 import { useStore } from "@nanostores/react";
 import "./css/pagination.css";
-import "react-responsive-pagination/themes/classic.css";
+import prev from "../icons/prev.svg";
+import next from "../icons/next.svg";
+// import "react-responsive-pagination/themes/classic.css";
 
 function Pagination() {
   const posts = useStore($posts);
@@ -44,7 +46,7 @@ function Pagination() {
             className="page-link"
             onClick={goToPrevPage} // Click event handler for navigating to previous page
           >
-            Previous
+            &laquo;
           </a>
         </li>
         {/* Mapping through each page number */}
@@ -52,7 +54,7 @@ function Pagination() {
           <li key={pgNumber} className={`page-item ${currentPage == pgNumber ? "active" : ""} `}>
             <a
               onClick={() => setCurrentPage(pgNumber)} // Click event handler for setting the current page
-              className="page-link"
+              className={`page-link ${currentPage == pgNumber ? "active" : ""} `}
             >
               {pgNumber}
             </a>
@@ -63,7 +65,7 @@ function Pagination() {
             className="page-link"
             onClick={goToNextPage} // Click event handler for navigating to next page
           >
-            Next
+            &raquo;
           </a>
         </li>
       </ul>

@@ -5,6 +5,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: none;
   position: fixed;
+  /* padding: 2rem 1rem 2rem; */
   /* border-radius: 5px; */
   /* overflow: hidden; */
 
@@ -105,4 +106,10 @@
   font-size: 1.4rem;
   color: var(--dark-grey);
   font-weight: 600;
+}
+
+.helper {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  text-align: center;
 }
