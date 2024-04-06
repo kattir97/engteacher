@@ -60,7 +60,11 @@ const { post }: { post: Post } = Astro.props;
   .blogpost {
     padding: 5rem 20vw;
 
-    @media (max-width) {
+    @media (max-width: 900px) {
+      padding: 2.5rem 10rem;
+    }
+
+    @media (max-width: 600px) {
       padding: 2.5rem 2rem;
     }
   }
