@@ -35,8 +35,9 @@ import Logo from "./Logo.astro";
   <div class="copyright">
     <h4 class="terms">Terms of Use</h4>
     <h4 class="copy">
-      &copy; 2024 Alice Eng. All rights reserved. Developed by <a href="#" class="dev"
-        >Sultan Kattir</a
+      &copy; 2024 EngTeacher. All rights reserved. Developed by <a
+        href="https://github.com/kattir97"
+        class="dev">Sultan Kattir</a
       >
     </h4>
   </div>
@@ -63,7 +64,7 @@ import Logo from "./Logo.astro";
   .copyright {
     display: flex;
     justify-content: space-between;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     transition: color 0.2s;
 
     @media (max-width: 600px) {
@@ -74,12 +75,14 @@ import Logo from "./Logo.astro";
 
     & .dev {
       text-decoration: none;
-      color: var(--dark-blue);
+      color: #333;
       font-family: "Tektur";
       font-weight: 600;
+      transition: all 0.2s;
+      font-size: 1.4rem;
 
       &:hover {
-        color: var(--mid-blue);
+        color: var(--secondary-color-dark);
       }
     }
   }
